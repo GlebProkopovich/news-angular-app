@@ -1,0 +1,43 @@
+<div *ngIf="isLoginOpened$ | async" class="login-container">
+  <h2>login</h2>
+  <p>Please enter your login and password!</p>
+  <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+    <label for="email">email</label>
+    <input formControlName="email" id="email" type="email" />
+    <div
+      *ngIf="
+        this.loginForm.get('email')?.invalid &&
+        this.loginForm.get('email')?.touched
+      "
+      class="error"
+    >
+      Email is required
+    </div>
+    <label for="password">password</label>
+    <input formControlName="password" id="password" type="password" />
+    <div
+      *ngIf="
+        this.loginForm.get('password')?.invalid &&
+        this.loginForm.get('password')?.touched
+      "
+      class="error"
+    >
+      The password should be a minimum of 8 latin characters and contain at
+      least 1 letter and 1 number
+    </div>
+    <button [disabled]="loginForm.invalid" type="submit">
+      <div *ngIf="isLoaderOpened" class="spinner-container">
+        <mat-spinner color="accent" diameter="20" class="loading"></mat-spinner>
+      </div>
+      <p *ngIf="!isLoaderOpened" class="button-content">sign in</p>
+    </button>
+  </form>
+</div>
+
+<app-notification
+  *ngIf="isNotificationOpened$ | async"
+  [text]="isLoggedIn ? 'Successful login!' : 'Something went wrong...'"
+  [buttonText]="isLoggedIn ? 'Continue' : 'Go back'"
+  [buttonLink]="isLoggedIn ? 'cabinet' : 'error'"
+  [isLoggedIn]="isLoggedIn"
+></app-notification>
