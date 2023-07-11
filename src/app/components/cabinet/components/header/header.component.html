@@ -1,0 +1,17 @@
+<div class="header-container">
+  <div (click)="handleClickOnLogo()" class="logo">
+    <img [src]="getLogoChronicle()" alt="Logo" />
+    <p>hronicle</p>
+  </div>
+  <div class="navbar">
+    <a routerLinkActive="active" routerLink="news">news</a>
+    <a routerLinkActive="active" routerLink="about">about</a>
+    <a routerLinkActive="active" routerLink="tariffs">tariffs</a>
+    <button (click)="handleClickOnLogout()">
+      <div *ngIf="isLoaderOpened" class="spinner-container">
+        <mat-spinner color="accent" diameter="20" class="loading"></mat-spinner>
+      </div>
+      <p *ngIf="!isLoaderOpened" class="button-content">logout</p>
+    </button>
+  </div>
+</div>

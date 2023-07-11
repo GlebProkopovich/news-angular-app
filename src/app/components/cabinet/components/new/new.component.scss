@@ -1,0 +1,85 @@
+.new-container {
+  background: #fff;
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  &:hover {
+    transform: scale(105%);
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .newImage {
+    height: 150px;
+    width: 100%;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .date {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: rgb(148, 148, 148);
+    padding: 10px 10px 0 10px;
+    margin: 0;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    color: rgb(116, 116, 116);
+    padding: 0 10px 10px 10px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .content {
+    color: rgb(121, 121, 121);
+    padding: 10px;
+  }
+
+  .bottom-pannel {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px 10px 10px;
+
+    .author {
+      max-width: 100px;
+      max-height: 40px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgb(116, 116, 116);
+      text-transform: capitalize;
+      overflow: hidden;
+    }
+
+    button {
+      height: 25px;
+      width: 80px;
+      border-radius: 5px;
+      font-size: 12px;
+      color: rgb(212, 124, 0);
+      background: rgb(226, 226, 226);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgb(208, 208, 208);
+      }
+
+      &:active {
+        background: rgb(226, 226, 226);
+      }
+    }
+  }
+}

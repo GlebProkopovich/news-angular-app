@@ -1,0 +1,55 @@
+<div class="news-container">
+  <div class="banner">
+    <p>
+      Where History Meets the Headlines
+      <span>Chronicle: Your gateway to Global News</span>
+    </p>
+    <img [src]="getNatureImage()" alt="Nature" />
+  </div>
+
+  <h2>Newest articles</h2>
+
+  <div class="selectorsHeadlines">
+    <span>Categories</span>
+    <span>Contries</span>
+    <span>Search</span>
+  </div>
+
+  <div class="newsSelectors">
+    <select [(ngModel)]="selectedCategory" (change)="handleCategoryChange()">
+      <option value="business">business</option>
+      <option value="sports">sports</option>
+      <option value="science">science</option>
+      <option value="health">health</option>
+      <option value="entertainment">entertainment</option>
+    </select>
+    <select [(ngModel)]="selectedCountry" (change)="handleCountryChange()">
+      <option value="us">usa</option>
+      <option value="ua">ukraine</option>
+      <option value="ru">russia</option>
+      <option value="de">germany</option>
+      <option value="cn">china</option>
+    </select>
+    <div class="search">
+      <input [(ngModel)]="searchText" type="text" />
+      <button (click)="handleSearch()">
+        <span class="material-symbols-outlined"> search </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="news">
+    <app-new
+      *ngFor="let new of news"
+      [imgSrc]="
+        new.urlToImage ||
+        'https://i.ibb.co/3hLj1r8/istockphoto-931643150-612x612.jpg'
+      "
+      [alt]="new.source.name"
+      [date]="new.publishedAt.slice(0, 10) || '2023-07-10'"
+      [title]="new.title || 'The best title in the world'"
+      [content]="new.content || 'Something interesting inside...'"
+      [author]="new.author || 'John Doe'"
+    ></app-new>
+  </div>
+</div>

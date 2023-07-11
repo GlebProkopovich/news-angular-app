@@ -1,27 +1,20 @@
 import { Injectable } from '@angular/core';
-import {
-  Observable,
-  catchError,
-  delay,
-  of,
-  switchMap,
-  throwError,
-  timer,
-} from 'rxjs';
+import { Observable, of, switchMap, throwError, timer } from 'rxjs';
 import { UserInfo } from '../models/UserInfo.interface';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor() {}
+  constructor(private router: Router) {}
 
   setToken(token: string): void {
     localStorage.setItem('token', token);
   }
 
-  getToken(): void {
-    localStorage.getItem('token');
+  getToken(): string | null {
+    return localStorage.getItem('token');
   }
 
   isAuth(): boolean {
@@ -46,5 +39,11 @@ export class AuthService {
         )
       );
     }
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userContent');
+    this.router.navigate(['/login']);
   }
 }

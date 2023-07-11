@@ -1,0 +1,86 @@
+.header-container {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  border-bottom: solid 0.5px rgb(201, 201, 201);
+
+  .logo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+
+    img {
+      height: 40px;
+      width: 40px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #425667;
+      text-transform: uppercase;
+      margin: 0;
+      padding: 5px;
+      letter-spacing: 5px;
+    }
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+
+    a {
+      font-size: 16px;
+      color: #425667;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 30px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: rgb(212, 124, 0);
+      }
+    }
+
+    .active {
+      color: rgb(212, 124, 0);
+    }
+
+    button {
+      height: 40px;
+      width: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      color: #fff;
+      text-transform: uppercase;
+      margin: 0 20px;
+      background: #425667;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #2d3b47;
+      }
+
+      &:active {
+        background: #425667;
+      }
+
+      .mat-mdc-progress-spinner {
+        --mdc-circular-progress-active-indicator-color: white;
+      }
+
+      .button-content {
+        margin: 0;
+      }
+    }
+  }
+}

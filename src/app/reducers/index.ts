@@ -4,13 +4,19 @@ import {
   LoginNotificationState,
   loginNotificationReducer,
 } from './loginNotification';
+import {
+  LogoutNotificationState,
+  logoutNotificationReducer,
+} from './logoutNotification';
 
 export interface State {
   loginWindow: LoginWindowState;
-  notification: LoginNotificationState;
+  loginNotification: LoginNotificationState;
+  logoutNotification: LogoutNotificationState;
 }
 
 export const reducers: ActionReducerMap<State> = {
   loginWindow: loginWindowReducer,
-  notification: loginNotificationReducer,
+  loginNotification: loginNotificationReducer,
+  logoutNotification: logoutNotificationReducer,
 };

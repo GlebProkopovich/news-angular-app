@@ -11,6 +11,7 @@ import {
   toggleLoginNotification,
 } from 'src/app/reducers/loginNotification';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -21,12 +22,16 @@ export class LoginComponent {
   loginForm!: FormGroup;
   isLoggedIn!: boolean;
   isLoaderOpened: boolean = false;
-  notificationSubscription!: Subscription;
+  loginNotificationSubscription!: Subscription;
   loginSubscription!: Subscription;
-  isNotificationOpened$ = this.store.select(loginNotificationSelector);
+  isLoginNotificationOpened$ = this.store.select(loginNotificationSelector);
   isLoginOpened$ = this.store.select(loginWindowSelector);
 
-  constructor(private authService: AuthService, private store: Store) {}
+  constructor(
+    private authService: AuthService,
+    private store: Store,
+    private router: Router
+  ) {}
 
   submitLogin(): void {
     this.isLoaderOpened = true;
@@ -68,11 +73,13 @@ export class LoginComponent {
         Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/),
       ]),
     });
+
+    this.authService.isAuth() && this.router.navigate(['/cabinet']);
   }
 
   ngOnDestroy(): void {
-    this.notificationSubscription &&
-      this.notificationSubscription.unsubscribe();
+    this.loginNotificationSubscription &&
+      this.loginNotificationSubscription.unsubscribe();
     this.loginSubscription && this.loginSubscription.unsubscribe();
   }
 }

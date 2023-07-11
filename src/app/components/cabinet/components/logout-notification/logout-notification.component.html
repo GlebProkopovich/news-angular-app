@@ -1,0 +1,16 @@
+<div
+  *ngIf="isLogoutNotificationOpened$ | async"
+  class="logoutNotification-container"
+>
+  <div class="logoutNotification-subcontainer">
+    <div class="icon">
+      <span class="material-symbols-outlined">done</span>
+    </div>
+    <p>Successful logout!</p>
+    <p>
+      Thank you for using our service. <br />
+      We look forward to seeing you again!
+    </p>
+    <button (click)="handleClickOnContinue()">Continue</button>
+  </div>
+</div>

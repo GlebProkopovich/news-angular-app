@@ -1,0 +1,22 @@
+<div class="loginNotification-container">
+  <div
+    class="icon"
+    [ngClass]="{ successIcon: isLoggedIn, errorIcon: !isLoggedIn }"
+  >
+    <span class="material-symbols-outlined">
+      {{ isLoggedIn ? "done" : "error" }}
+    </span>
+  </div>
+  <p>{{ isLoggedIn ? "Successful login!" : "Something went wrong..." }}</p>
+  <p *ngIf="isLoggedIn">
+    Welcome, dear {{ userName }}! <br />
+    Your email: {{ userEmail }}
+  </p>
+  <p *ngIf="!isLoggedIn">Check the filled email and password!</p>
+  <button
+    [class]="isLoggedIn ? 'successButton' : 'errorButton'"
+    (click)="isLoggedIn ? handleSuccessfulLogin() : handleInvalidLogin()"
+  >
+    {{ isLoggedIn ? "Continue" : "Go back" }}
+  </button>
+</div>

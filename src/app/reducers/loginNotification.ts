@@ -26,7 +26,7 @@ export const loginNotificationReducer = createReducer(
 );
 
 export const featureSelector =
-  createFeatureSelector<LoginNotificationState>('notification');
+  createFeatureSelector<LoginNotificationState>('loginNotification');
 export const loginNotificationSelector = createSelector(
   featureSelector,
   (state) => state.isLoginNotificationOpened
