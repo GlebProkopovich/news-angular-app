@@ -3,6 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { toggleLogoutNotification } from 'src/app/reducers/logoutNotification';
+import { mainLoaderSelector } from 'src/app/reducers/mainLoader';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,7 @@ import { toggleLogoutNotification } from 'src/app/reducers/logoutNotification';
 })
 export class HeaderComponent {
   isLoaderOpened: boolean = false;
+  isMainLoaderOpened$ = this.store.select(mainLoaderSelector);
 
   constructor(
     private sanitizer: DomSanitizer,
@@ -26,6 +28,7 @@ export class HeaderComponent {
 
   handleClickOnLogo(): void {
     this.router.navigate(['/cabinet/news']);
+    console.log(this.isMainLoaderOpened$);
   }
 
   handleClickOnLogout(): void {

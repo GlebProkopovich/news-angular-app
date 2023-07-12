@@ -14,6 +14,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AboutComponent } from './components/about/about.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NewDetailsComponent } from './components/new-details/new-details.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     CabinetDashboardComponent,
     LogoutNotificationComponent,
     AboutComponent,
+    NewDetailsComponent,
   ],
   imports: [
     CommonModule,
@@ -34,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatProgressSpinnerModule,
     FormsModule,
     HttpClientModule,
+    NgxPaginationModule,
   ],
 })
 export class CabinetModule {}

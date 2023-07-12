@@ -31,16 +31,28 @@
       <option value="cn">china</option>
     </select>
     <div class="search">
-      <input [(ngModel)]="searchText" type="text" />
+      <input [(ngModel)]="searchText" type="text" placeholder="keywords..." />
       <button (click)="handleSearch()">
         <span class="material-symbols-outlined"> search </span>
       </button>
     </div>
   </div>
 
+  <p *ngIf="totalAmountOfNews === 0" class="empty-news">
+    No news matching these filters.
+  </p>
   <div class="news">
     <app-new
-      *ngFor="let new of news"
+      *ngFor="
+        let new of news
+          | paginate
+            : {
+                id: 'news',
+                itemsPerPage: 12,
+                currentPage: config.currentPage,
+                totalItems: totalAmountOfNews
+              }
+      "
       [imgSrc]="
         new.urlToImage ||
         'https://i.ibb.co/3hLj1r8/istockphoto-931643150-612x612.jpg'
@@ -50,6 +62,15 @@
       [title]="new.title || 'The best title in the world'"
       [content]="new.content || 'Something interesting inside...'"
       [author]="new.author || 'John Doe'"
+      [newName]="new.source.name"
+      [newUrl]="new.url"
     ></app-new>
+  </div>
+  <div *ngIf="totalAmountOfNews > 12" class="pagination-container">
+    <pagination-controls
+      class="pagination"
+      (pageChange)="handlePageChange($event)"
+      [id]="'news'"
+    ></pagination-controls>
   </div>
 </div>

@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Component, Input, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
+import { NewDetails } from 'src/app/models/NewDetails.interface';
 
 @Component({
   selector: 'app-new',
@@ -13,11 +14,39 @@ export class NewComponent {
   @Input() content!: string;
   @Input() author: string = 'John Doe';
   @Input() alt: string = 'Image';
+  @Input() newName!: string;
+  @Input() newUrl!: string;
 
-  constructor(private sanitizer: DomSanitizer) {}
+  newDetails: NewDetails = {
+    imgSrc: '',
+    date: '',
+    title: '',
+    content: '',
+    author: '',
+    alt: '',
+    name: '',
+    url: '',
+    comments: [],
+  };
 
-  getNatureImage() {
-    const imagePath = '../../../../../assets/nature.jpg';
-    return this.sanitizer.bypassSecurityTrustResourceUrl(imagePath);
+  route!: string;
+
+  constructor(private router: Router) {}
+
+  ngOnChanges() {
+    this.newDetails.imgSrc = this.imgSrc;
+    this.newDetails.date = this.date;
+    this.newDetails.title = this.title;
+    this.newDetails.content = this.content;
+    this.newDetails.author = this.author;
+    this.newDetails.alt = this.alt;
+    this.newDetails.name = this.newName;
+    this.newDetails.url = this.newUrl;
+  }
+
+  getDetails() {
+    this.route = `${this.title.split(' ').splice(0, 3).join('-')}...`;
+    this.router.navigate([`/cabinet/news/${this.newName}-${this.route}`]);
+    localStorage.setItem(`${this.title}`, JSON.stringify(this.newDetails));
   }
 }

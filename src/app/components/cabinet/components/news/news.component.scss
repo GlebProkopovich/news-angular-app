@@ -64,7 +64,7 @@
     height: 50px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 180px;
+    gap: 185px;
     margin: 0 70px 20px;
 
     select {
@@ -83,11 +83,11 @@
       background-position: right center;
       background-repeat: no-repeat;
       background-size: 16px;
+      border-radius: 5px;
     }
 
     .search {
       height: 100%;
-      // width: 300px;
       position: relative;
       display: flex;
       align-items: center;
@@ -102,15 +102,30 @@
         font-size: 16px;
         letter-spacing: 2px;
         padding: 10px 45px 10px 10px;
+        border-radius: 5px;
+
+        &::placeholder {
+          color: rgb(170, 170, 170);
+          font-size: 16px;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          padding: 10px;
+        }
+
+        &:focus {
+          border: 0.5px solid rgb(212, 124, 0);
+        }
       }
 
       button {
         cursor: pointer;
+        position: absolute;
+        top: 20%;
+        left: 83%;
+        background: none;
+        border: none;
 
         span {
-          position: absolute;
-          top: 20%;
-          left: 83%;
           font-size: 30px;
           color: rgb(170, 170, 170);
           transition: all 0.3s ease;
@@ -127,11 +142,47 @@
     }
   }
 
+  .empty-news {
+    color: grey;
+    font-size: 16px;
+    padding: 20px 70px;
+    margin: 0;
+  }
+
   .news {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
-    padding: 20px 70px;
+    padding: 20px 70px 0;
+  }
+
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+
+    .pagination ::ng-deep .ngx-pagination {
+      margin: 0;
+    }
+
+    .pagination ::ng-deep .ngx-pagination li a {
+      font-size: 16px;
+      color: rgb(94, 94, 94);
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: #fff;
+        background: rgb(170, 170, 170);
+        border-radius: 5px;
+      }
+    }
+
+    .pagination ::ng-deep .ngx-pagination .current {
+      font-size: 16px;
+      background: rgb(100, 100, 100);
+      border-radius: 5px;
+    }
   }
 }
