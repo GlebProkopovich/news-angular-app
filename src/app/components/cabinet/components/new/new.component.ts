@@ -45,8 +45,11 @@ export class NewComponent {
   }
 
   getDetails() {
-    this.route = `${this.title.split(' ').splice(0, 3).join('-')}...`;
-    this.router.navigate([`/cabinet/news/${this.newName}-${this.route}`]);
-    localStorage.setItem(`${this.title}`, JSON.stringify(this.newDetails));
+    this.route = `${this.title.split(' ').splice(0, 4).join('-')}...`;
+    this.router.navigate([`/cabinet/news/${this.route}`]);
+
+    if (!localStorage.getItem(this.route)) {
+      localStorage.setItem(this.route, JSON.stringify(this.newDetails));
+    }
   }
 }

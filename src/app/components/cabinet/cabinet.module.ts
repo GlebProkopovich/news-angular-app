@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NewDetailsComponent } from './components/new-details/new-details.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NewDetailsComponent } from './components/new-details/new-details.compon
     LogoutNotificationComponent,
     AboutComponent,
     NewDetailsComponent,
+    CommentComponent,
   ],
   imports: [
     CommonModule,

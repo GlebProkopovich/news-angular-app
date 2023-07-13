@@ -1,14 +1,35 @@
 <div class="newDetails-container">
+  <button class="back">
+    <span class="material-symbols-outlined"> arrow_back_ios </span>
+    <p (click)="goBack()">go back</p>
+  </button>
   <div class="newDetailsImage">
-    <img [src]="imgSrc" alt="alt" />
+    <img [src]="newDetails.imgSrc" alt="alt" />
   </div>
-  <p class="date">Published at: {{ date }}</p>
+  <p class="date">Published at: {{ newDetails.date }}</p>
   <h3>
-    {{ title }}
+    {{ newDetails.title }}
   </h3>
   <p class="content">
-    {{ content }}
+    {{ newDetails.content }}
   </p>
-  <p class="author">{{ author }}</p>
-  <button>read full article</button>
+  <div class="bottom-pannel">
+    <a target="_blank" [href]="newDetails.url">read full article</a>
+    <p class="author">{{ newDetails.author }}</p>
+  </div>
+  <div class="separator"></div>
+  <p class="comments">33 comments</p>
+  <app-comment
+    *ngFor="let comment of comments"
+    photoSrc="https://i.ibb.co/wMkxg73/no-photo.png"
+    nickname="admin"
+    [text]="comment"
+    date="24-02-2022"
+  ></app-comment>
+  <div class="writeComment">
+    <input [(ngModel)]="commentText" type="text" placeholder="Your comment" />
+    <button (click)="handleClickOnSend(currentUrl.slice(14), commentText)">
+      <span class="material-symbols-outlined"> send </span>
+    </button>
+  </div>
 </div>
