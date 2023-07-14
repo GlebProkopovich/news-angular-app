@@ -1,6 +1,28 @@
 .comment-container {
   display: flex;
-  margin-bottom: 40px;
+  position: relative;
+  padding: 10px;
+  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 5px;
+
+  .close {
+    position: absolute;
+    top: 5%;
+    left: 97%;
+    color: rgb(66, 66, 66);
+    background: none;
+    border: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: rgb(212, 124, 0);
+    }
+
+    span {
+      font-size: 30px;
+    }
+  }
 
   .photo {
     height: 80px;

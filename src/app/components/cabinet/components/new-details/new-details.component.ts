@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { NewDetails } from 'src/app/models/NewDetails.interface';
 import { Location } from '@angular/common';
 import { CommentsService } from '../../services/comments.service';
+import { NewsService } from '../../services/news.service';
+import { Comment } from 'src/app/models/Comments.interface';
 
 @Component({
   selector: 'app-new-details',
@@ -11,28 +13,23 @@ import { CommentsService } from '../../services/comments.service';
 })
 export class NewDetailsComponent {
   currentUrl!: string;
-  newDetails!: NewDetails;
+  newDetails!: NewDetails | void;
   commentText: string = '';
-  comments!: string[];
+  comments!: Comment[];
+  date!: string;
 
   constructor(
     private router: Router,
     private location: Location,
-    private commentsService: CommentsService
+    private commentsService: CommentsService,
+    private newsService: NewsService
   ) {}
 
   ngOnInit(): void {
     this.currentUrl = decodeURIComponent(this.router.url);
-    this.getNew(this.currentUrl);
-    this.comments = this.newDetails.comments;
-    console.log(this.comments);
-  }
-
-  ngOnChange(): void {
-    const title = this.currentUrl.slice(14);
-    const news = localStorage.getItem(title);
-    if (news) {
-      this.comments = JSON.parse(news).comments;
+    this.newDetails = this.newsService.getNew(this.currentUrl);
+    if (this.newDetails) {
+      this.comments = this.newDetails.comments.map((comment: any) => comment);
     }
   }
 
@@ -40,17 +37,12 @@ export class NewDetailsComponent {
     this.location.back();
   }
 
-  getNew(currentUrl: string): void {
-    const title = currentUrl.slice(14);
-    const news = localStorage.getItem(title);
-    if (news) {
-      this.newDetails = JSON.parse(news);
-    }
-  }
+  handleClickOnSend(currentUrl: string, text: string): void {
+    const currentDate: Date = new Date();
+    this.date = this.commentsService.formatDate(currentDate);
 
-  handleClickOnSend(title: string, text: string): void {
-    this.commentsService.sendComment(title, text);
-    this.comments.push(text);
+    this.comments.push({ text: this.commentText, date: this.date });
     this.commentText = '';
+    this.commentsService.sendComment(currentUrl, text);
   }
 }

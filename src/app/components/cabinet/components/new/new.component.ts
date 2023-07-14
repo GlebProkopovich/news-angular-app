@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { NewDetails } from 'src/app/models/NewDetails.interface';
 
@@ -33,7 +33,7 @@ export class NewComponent {
 
   constructor(private router: Router) {}
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.newDetails.imgSrc = this.imgSrc;
     this.newDetails.date = this.date;
     this.newDetails.title = this.title;
@@ -44,12 +44,25 @@ export class NewComponent {
     this.newDetails.url = this.newUrl;
   }
 
-  getDetails() {
+  getDetails(): void {
     this.route = `${this.title.split(' ').splice(0, 4).join('-')}...`;
     this.router.navigate([`/cabinet/news/${this.route}`]);
+    const unparsedNews = localStorage.getItem('news');
 
-    if (!localStorage.getItem(this.route)) {
-      localStorage.setItem(this.route, JSON.stringify(this.newDetails));
+    if (unparsedNews) {
+      const news = JSON.parse(unparsedNews);
+      const matchingNews = news.filter((newDetails: NewDetails) =>
+        newDetails.title.includes(this.title)
+      );
+
+      if (matchingNews.length === 0) {
+        localStorage.setItem(
+          'news',
+          JSON.stringify([...news, this.newDetails])
+        );
+      }
+    } else {
+      localStorage.setItem('news', JSON.stringify([this.newDetails]));
     }
   }
 }

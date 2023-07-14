@@ -28,6 +28,10 @@ export class LoginNotificationComponent {
 
   handleSuccessfulLogin(): void {
     this.router.navigate(['/cabinet']);
+    setTimeout(() => {
+      this.store.dispatch(toggleLoginWindow());
+      this.store.dispatch(toggleLoginNotification());
+    }, 2000);
   }
 
   handleInvalidLogin(): void {

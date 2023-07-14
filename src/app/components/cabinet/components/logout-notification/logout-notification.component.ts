@@ -2,8 +2,6 @@ import { Component, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { toggleLoginNotification } from 'src/app/reducers/loginNotification';
-import { toggleLoginWindow } from 'src/app/reducers/loginWindow';
 import {
   logoutNotificationSelector,
   toggleLogoutNotification,
@@ -26,8 +24,6 @@ export class LogoutNotificationComponent {
 
   handleClickOnContinue(): void {
     this.renderer.removeClass(document.body, 'modal-opened');
-    this.store.dispatch(toggleLoginNotification());
-    this.store.dispatch(toggleLoginWindow());
     this.router.navigate(['/login']);
     this.store.dispatch(toggleLogoutNotification());
   }

@@ -1,4 +1,7 @@
 <div class="comment-container">
+  <button (click)="handleClickOnCloseBtn(currentUrl, text)" class="close">
+    <span class="material-symbols-outlined"> close </span>
+  </button>
   <div class="photo">
     <img [src]="photoSrc" alt="Photo" />
   </div>

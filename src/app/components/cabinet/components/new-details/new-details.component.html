@@ -4,31 +4,40 @@
     <p (click)="goBack()">go back</p>
   </button>
   <div class="newDetailsImage">
-    <img [src]="newDetails.imgSrc" alt="alt" />
+    <img [src]="newDetails && newDetails.imgSrc" alt="alt" />
   </div>
-  <p class="date">Published at: {{ newDetails.date }}</p>
+  <p class="date">Published at: {{ newDetails && newDetails.date }}</p>
   <h3>
-    {{ newDetails.title }}
+    {{ newDetails && newDetails.title }}
   </h3>
   <p class="content">
-    {{ newDetails.content }}
+    {{ newDetails && newDetails.content }}
   </p>
   <div class="bottom-pannel">
-    <a target="_blank" [href]="newDetails.url">read full article</a>
-    <p class="author">{{ newDetails.author }}</p>
+    <a target="_blank" [href]="newDetails && newDetails.url"
+      >read full article</a
+    >
+    <p class="author">{{ newDetails && newDetails.author }}</p>
   </div>
   <div class="separator"></div>
-  <p class="comments">33 comments</p>
+  <p class="comments">
+    {{ comments.length }}
+    {{ comments.length > 1 || comments.length === 0 ? "comments" : "comment" }}
+  </p>
   <app-comment
-    *ngFor="let comment of comments"
+    *ngFor="let comment of comments; let i = index"
     photoSrc="https://i.ibb.co/wMkxg73/no-photo.png"
     nickname="admin"
-    [text]="comment"
-    date="24-02-2022"
+    [text]="comment.text"
+    [index]="i"
+    [currentUrl]="currentUrl"
+    [date]="comment.date"
+    [newDetails]="newDetails"
+    [comments]="this.comments"
   ></app-comment>
   <div class="writeComment">
     <input [(ngModel)]="commentText" type="text" placeholder="Your comment" />
-    <button (click)="handleClickOnSend(currentUrl.slice(14), commentText)">
+    <button (click)="handleClickOnSend(currentUrl, commentText)">
       <span class="material-symbols-outlined"> send </span>
     </button>
   </div>

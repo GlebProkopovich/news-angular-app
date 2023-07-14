@@ -1,5 +1,5 @@
 import { Component, Renderer2 } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { toggleLogoutNotification } from 'src/app/reducers/logoutNotification';
@@ -21,14 +21,13 @@ export class HeaderComponent {
     private renderer: Renderer2
   ) {}
 
-  getLogoChronicle() {
+  getLogoChronicle(): SafeResourceUrl {
     const imagePath = '../../../../../assets/logoChronicle.png';
     return this.sanitizer.bypassSecurityTrustResourceUrl(imagePath);
   }
 
   handleClickOnLogo(): void {
     this.router.navigate(['/cabinet/news']);
-    console.log(this.isMainLoaderOpened$);
   }
 
   handleClickOnLogout(): void {

@@ -1,3 +1,51 @@
 <div class="tariffs-container">
-  <p>tariffs works!</p>
+  <section class="content-info">
+    <h1>Get Premium free for 1 month</h1>
+    <h3>Just USD 4.99/month after. Cancel anytime.</h3>
+    <div class="buttons">
+      <button (click)="scrollToElement()" class="getStarted">
+        get started
+      </button>
+      <button (click)="scrollToElement()" class="viewPlans">view plans</button>
+    </div>
+    <p class="terms">
+      <span (click)="scrollToElement()">Terms and conditions appy.</span>
+      1 month free not available for users who have already tried Premium.
+    </p>
+  </section>
+
+  <section class="tariffs" id="tariffs">
+    <h1 class="headline">
+      Plans and pricing for Creative Cloud apps and more.
+    </h1>
+    <div class="tariffs-buttons">
+      <button
+        *ngFor="let tariff of tariffs"
+        (click)="handleClickOnTypeBtn($event.target)"
+        class="tariff-button"
+      >
+        {{ tariff.title }}
+      </button>
+    </div>
+    <div class="tariff-container">
+      <div *ngIf="selectedTariff" class="tariff-subcontainer">
+        <h5>1 month free</h5>
+        <h1>{{ selectedTariff.title }}</h1>
+        <h3>USD {{ selectedTariff.price }}/month after offer period</h3>
+        <h4>
+          {{ selectedTariff.qtyAccounts }}
+          {{ selectedTariff.qtyAccounts === 1 ? "account" : "accounts" }}
+        </h4>
+        <div class="separator"></div>
+        <ul>
+          <li *ngFor="let benefit of selectedTariff.benefits">{{ benefit }}</li>
+        </ul>
+        <button>get started</button>
+        <p>
+          <span>Terms and conditions apply.</span> 1 month free not available
+          for users who have already tried Premium.
+        </p>
+      </div>
+    </div>
+  </section>
 </div>

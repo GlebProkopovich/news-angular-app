@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { CabinetRoutingModule } from './cabinet-routing.module';
 import { TariffsComponent } from './components/tariffs/tariffs.component';
 import { NewsComponent } from './components/news/news.component';

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NewsService } from '../../services/news.service';
 import { New } from 'src/app/models/New.interface';
 import { PaginationInstance } from 'ngx-pagination';
@@ -29,7 +29,7 @@ export class NewsComponent {
     private store: Store
   ) {}
 
-  getNatureImage() {
+  getNatureImage(): SafeResourceUrl {
     const imagePath = '../../../../../assets/nature.jpg';
     return this.sanitizer.bypassSecurityTrustResourceUrl(imagePath);
   }
@@ -47,13 +47,13 @@ export class NewsComponent {
   }
 
   makeNewsRequest(): void {
-    this.store.dispatch(toggleMainLoader());
-
     const category = this.selectedCategory;
     const searchText = this.searchText;
     const page = String(this.config.currentPage);
     const pageSize = '12';
     const country = this.selectedCountry;
+
+    this.store.dispatch(toggleMainLoader());
 
     this.newsService
       .getNews(country, category, searchText, page, pageSize)
