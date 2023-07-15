@@ -11,11 +11,13 @@ import { LogoutNotificationComponent } from './components/logout-notification/lo
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AboutComponent } from './components/about/about.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NewDetailsComponent } from './components/new-details/new-details.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { AddArticleComponent } from './components/add-article/add-article.component';
+import { AddArticleNotificationComponent } from './components/add-article-notification/add-article-notification.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { CommentComponent } from './components/comment/comment.component';
     AboutComponent,
     NewDetailsComponent,
     CommentComponent,
+    AddArticleComponent,
+    AddArticleNotificationComponent,
   ],
   imports: [
     CommonModule,
@@ -39,6 +43,7 @@ import { CommentComponent } from './components/comment/comment.component';
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
+    ReactiveFormsModule,
   ],
 })
 export class CabinetModule {}

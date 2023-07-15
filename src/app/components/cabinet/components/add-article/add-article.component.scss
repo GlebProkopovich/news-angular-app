@@ -1,0 +1,121 @@
+.addArticle-container {
+  padding: 30px 70px;
+
+  .back {
+    width: 95px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    background: none;
+    border: none;
+    color: rgb(101, 101, 101);
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: rgb(212, 124, 0);
+    }
+
+    p {
+      font-size: 16px;
+      text-transform: uppercase;
+      margin: 0;
+    }
+  }
+
+  h3 {
+    font-size: 30px;
+    color: rgb(84, 84, 84);
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 16px;
+      color: rgb(67, 67, 67);
+      text-transform: capitalize;
+      margin-bottom: 2px;
+    }
+
+    select {
+      height: 40px;
+      border: solid 0.5px rgb(201, 201, 201);
+      background: #fff;
+      color: rgb(170, 170, 170);
+      font-size: 16px;
+      text-transform: capitalize;
+      letter-spacing: 2px;
+      padding: 10px;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("../../../../../assets/arrow.png");
+      background-origin: content-box;
+      background-position: right center;
+      background-repeat: no-repeat;
+      background-size: 16px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+
+      &:focus {
+        border: 0.5px solid rgb(212, 124, 0);
+      }
+    }
+
+    input {
+      height: 40px;
+      border: solid 0.5px rgb(201, 201, 201);
+      background: #fff;
+      color: rgb(170, 170, 170);
+      font-size: 16px;
+      letter-spacing: 2px;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+
+      &:focus {
+        border: 0.5px solid rgb(212, 124, 0);
+      }
+
+      &::placeholder {
+        color: rgb(170, 170, 170);
+        letter-spacing: 1px;
+      }
+    }
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      text-transform: uppercase;
+      border-radius: 5px;
+      padding: 10px;
+      text-decoration: none;
+      background: #2d3b47;
+      color: #fff;
+      letter-spacing: 0;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      margin: 10px 0;
+
+      &:hover {
+        background: #181f26;
+      }
+
+      &:active {
+        background: #2d3b47;
+      }
+
+      .mat-mdc-progress-spinner {
+        --mdc-circular-progress-active-indicator-color: white;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+}

@@ -33,6 +33,24 @@ export class LoginComponent {
     private router: Router
   ) {}
 
+  ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/),
+      ]),
+    });
+
+    this.authService.isAuth() && this.router.navigate(['/cabinet']);
+  }
+
+  ngOnDestroy(): void {
+    this.loginNotificationSubscription &&
+      this.loginNotificationSubscription.unsubscribe();
+    this.loginSubscription && this.loginSubscription.unsubscribe();
+  }
+
   submitLogin(): void {
     this.isLoaderOpened = true;
     this.loginSubscription = this.authService
@@ -63,23 +81,5 @@ export class LoginComponent {
           console.log(error);
         },
       });
-  }
-
-  ngOnInit(): void {
-    this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/),
-      ]),
-    });
-
-    this.authService.isAuth() && this.router.navigate(['/cabinet']);
-  }
-
-  ngOnDestroy(): void {
-    this.loginNotificationSubscription &&
-      this.loginNotificationSubscription.unsubscribe();
-    this.loginSubscription && this.loginSubscription.unsubscribe();
   }
 }

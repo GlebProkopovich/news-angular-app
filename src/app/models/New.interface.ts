@@ -1,4 +1,6 @@
 export interface New {
+  category?: string;
+  country?: string;
   source: {
     id: string | null;
     name: string;

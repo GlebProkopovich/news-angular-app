@@ -29,6 +29,10 @@ export class NewsComponent {
     private store: Store
   ) {}
 
+  ngOnInit(): void {
+    this.makeNewsRequest();
+  }
+
   getNatureImage(): SafeResourceUrl {
     const imagePath = '../../../../../assets/nature.jpg';
     return this.sanitizer.bypassSecurityTrustResourceUrl(imagePath);
@@ -58,23 +62,35 @@ export class NewsComponent {
     this.newsService
       .getNews(country, category, searchText, page, pageSize)
       .subscribe({
-        next: (response) => (
-          (this.news = response.articles),
-          (this.totalAmountOfNews = response.totalResults),
-          this.store.dispatch(toggleMainLoader())
-        ),
-        error: (error) => (
-          console.log(error), this.store.dispatch(toggleMainLoader())
-        ),
+        next: (response) => {
+          this.news = response.articles;
+          this.totalAmountOfNews = response.totalResults;
+          this.store.dispatch(toggleMainLoader());
+
+          const unparsedNews = localStorage.getItem('customNews');
+          if (unparsedNews) {
+            const customNews = JSON.parse(unparsedNews);
+            const matchingNews = customNews.filter(
+              (news: New) =>
+                news.category === category && news.country === country
+            );
+
+            if (matchingNews) {
+              matchingNews.forEach((customNew: New) =>
+                this.news.unshift(customNew)
+              );
+            }
+          }
+        },
+        error: (error) => {
+          console.log(error);
+          this.store.dispatch(toggleMainLoader());
+        },
       });
   }
 
   handlePageChange(pageNumber: number): void {
     this.config.currentPage = pageNumber;
-    this.makeNewsRequest();
-  }
-
-  ngOnInit() {
     this.makeNewsRequest();
   }
 }

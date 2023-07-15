@@ -1,0 +1,77 @@
+<div class="addArticle-container">
+  <button (click)="goBack()" class="back">
+    <span class="material-symbols-outlined"> arrow_back_ios </span>
+    <p>go back</p>
+  </button>
+  <h3>Fill the form to add new article</h3>
+  <form [formGroup]="addArticleForm" (ngSubmit)="handleClickOnAddArticle()">
+    <label>category</label>
+    <select formControlName="category">
+      <option value="business">business</option>
+      <option value="sports">sports</option>
+      <option value="science">science</option>
+      <option value="health">health</option>
+      <option value="entertainment">entertainment</option>
+    </select>
+    <label>country</label>
+    <select formControlName="country">
+      <option value="us">usa</option>
+      <option value="ua">ukraine</option>
+      <option value="ru">russia</option>
+      <option value="de">germany</option>
+      <option value="cn">china</option>
+    </select>
+
+    <label>author</label>
+    <input
+      formControlName="author"
+      placeholder="Author's fullname"
+      type="text"
+    />
+
+    <label>title</label>
+    <input
+      formControlName="title"
+      placeholder="The title of the article"
+      type="text"
+    />
+
+    <label>url</label>
+    <input
+      formControlName="url"
+      placeholder="Url to the full article"
+      type="text"
+    />
+
+    <label>Url to image</label>
+    <input
+      formControlName="urlToImage"
+      placeholder="Url to the image for article"
+      type="text"
+    />
+
+    <label>Published at</label>
+    <input
+      formControlName="publishedAt"
+      placeholder="Date, when the article was published"
+      type="text"
+    />
+
+    <label>Description</label>
+    <input
+      formControlName="description"
+      placeholder="Write description to the article"
+      type="text"
+    />
+    <button type="submit">
+      <div *ngIf="isLoaderOpened" class="spinner-container">
+        <mat-spinner color="accent" diameter="20" class="loading"></mat-spinner>
+      </div>
+      <p *ngIf="!isLoaderOpened">add article</p>
+    </button>
+  </form>
+
+  <app-add-article-notification
+    *ngIf="isNotificationOpened"
+  ></app-add-article-notification>
+</div>

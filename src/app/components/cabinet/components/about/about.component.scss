@@ -1,0 +1,41 @@
+#about-container {
+  height: 500px;
+  padding: 30px 70px;
+  background: #607d96;
+
+  h1 {
+    font-size: 50px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+    padding: 60px 0 20px;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  .ourStory {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+
+    .separator {
+      width: 100px;
+      border-top: 3px solid #fff;
+    }
+
+    h3 {
+      font-size: 30px;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0;
+    }
+  }
+
+  p {
+    font-size: 16px;
+    color: #fff;
+    padding: 50px 0;
+  }
+}

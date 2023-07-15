@@ -5,6 +5,7 @@ import { TariffsComponent } from './components/tariffs/tariffs.component';
 import { CabinetDashboardComponent } from './components/cabinet-dashboard/cabinet-dashboard.component';
 import { AboutComponent } from './components/about/about.component';
 import { NewDetailsComponent } from './components/new-details/new-details.component';
+import { AddArticleComponent } from './components/add-article/add-article.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
     component: CabinetDashboardComponent,
     children: [
       { path: 'news', component: NewsComponent },
+      { path: 'news/add-article', component: AddArticleComponent },
       { path: 'news/:name', component: NewDetailsComponent },
       { path: 'tariffs', component: TariffsComponent },
       { path: 'about', component: AboutComponent },
