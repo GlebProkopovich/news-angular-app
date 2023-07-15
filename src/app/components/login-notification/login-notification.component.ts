@@ -26,6 +26,13 @@ export class LoginNotificationComponent {
     this.userEmail = 'user@gmail.com';
   }
 
+  ngOnInit() {
+    const storedContent = localStorage.getItem('userContent');
+    this.userContent = storedContent ? JSON.parse(storedContent) : null;
+    this.userName = this.userContent?.name;
+    this.userEmail = this.userContent?.email;
+  }
+
   handleSuccessfulLogin(): void {
     this.router.navigate(['/cabinet']);
     setTimeout(() => {
@@ -37,12 +44,5 @@ export class LoginNotificationComponent {
   handleInvalidLogin(): void {
     this.store.dispatch(toggleLoginNotification());
     this.store.dispatch(toggleLoginWindow());
-  }
-
-  ngOnInit() {
-    const storedContent = localStorage.getItem('userContent');
-    this.userContent = storedContent ? JSON.parse(storedContent) : null;
-    this.userName = this.userContent?.name;
-    this.userEmail = this.userContent?.email;
   }
 }
