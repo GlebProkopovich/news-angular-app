@@ -119,3 +119,56 @@
     }
   }
 }
+
+@media screen and (max-width: 850px) {
+  .addArticle-container {
+    padding: 30px 50px;
+
+    .back {
+      width: 80px;
+
+      span {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    h3 {
+      font-size: 25px;
+    }
+
+    form {
+      label {
+        font-size: 14px;
+      }
+
+      select {
+        font-size: 14px;
+        background-size: 14px;
+      }
+
+      input {
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .addArticle-container {
+    padding: 30px 20px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .addArticle-container {
+    padding: 30px 10px;
+  }
+}

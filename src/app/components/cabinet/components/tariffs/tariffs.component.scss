@@ -112,6 +112,7 @@
       justify-content: space-between;
       align-items: center;
       margin: 0 auto;
+      padding: 0 20px;
 
       .tariff-button {
         height: 50px;
@@ -260,6 +261,209 @@
               color: rgb(61, 61, 61);
             }
           }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .tariffs-container {
+    .content-info {
+      height: auto;
+      padding: 80px 50px;
+
+      h1 {
+        font-size: 40px;
+        line-height: 40px;
+      }
+
+      h3 {
+        font-size: 25px;
+      }
+
+      .buttons {
+        .getStarted {
+          height: 50px;
+          width: 150px;
+        }
+
+        .viewPlans {
+          height: 50px;
+          width: 150px;
+        }
+      }
+    }
+
+    .tariffs {
+      .headline {
+        font-size: 20px;
+        margin: 30px 0;
+        padding: 0 20px;
+      }
+
+      .tariffs-buttons {
+        width: 100%;
+        padding: 0 50px;
+
+        .tariff-button {
+          height: 40px;
+          width: 100px;
+          font-size: 16px;
+        }
+
+        .selected {
+          &::after {
+            height: 10px;
+            top: 35px;
+            background: #fff;
+          }
+        }
+      }
+
+      .tariff-container {
+        .tariff-subcontainer {
+          &:hover {
+            transform: scale(105%);
+          }
+
+          h1 {
+            font-size: 20px;
+          }
+
+          h3 {
+            font-size: 14px;
+          }
+
+          h4 {
+            font-size: 14px;
+          }
+
+          ul {
+            font-size: 14px;
+          }
+
+          button {
+            height: 40px;
+            width: 100%;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .tariffs-container {
+    .content-info {
+      padding: 60px 20px;
+
+      h1 {
+        font-size: 30px;
+        line-height: 30px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      .buttons {
+        .getStarted {
+          height: 30px;
+          width: 100px;
+          font-size: 14px;
+        }
+
+        .viewPlans {
+          height: 30px;
+          width: 100px;
+          font-size: 14px;
+        }
+      }
+
+      .terms {
+        font-size: 12px;
+      }
+    }
+
+    .tariffs {
+      .headline {
+        font-size: 20px;
+        margin: 30px 0;
+        padding: 0 20px;
+      }
+
+      .tariffs-buttons {
+        width: 100%;
+        padding: 0 20px;
+
+        .tariff-button {
+          height: 35px;
+          width: 70px;
+          font-size: 12px;
+        }
+
+        .selected {
+          &::after {
+            top: 30px;
+          }
+        }
+      }
+
+      .tariff-container {
+        .tariff-subcontainer {
+          &:hover {
+            transform: scale(105%);
+          }
+
+          h1 {
+            font-size: 16px;
+          }
+
+          h3 {
+            font-size: 14px;
+          }
+
+          h4 {
+            font-size: 14px;
+          }
+
+          ul {
+            font-size: 14px;
+          }
+
+          button {
+            height: 40px;
+            width: 100%;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .tariffs-container {
+    .content-info {
+      padding: 40px 10px;
+    }
+
+    .tariffs {
+      .headline {
+        font-size: 20px;
+        margin: 30px 0;
+        padding: 0 10px;
+      }
+
+      .tariffs-buttons {
+        padding: 0 10px;
+      }
+
+      .tariff-container {
+        .tariff-subcontainer {
+          margin: 10px;
         }
       }
     }

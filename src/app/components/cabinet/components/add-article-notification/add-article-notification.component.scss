@@ -64,3 +64,19 @@
     }
   }
 }
+
+@media screen and (max-width: 600px) {
+  .addArticle-container {
+    .addArticle-subcontainer {
+      width: 250px;
+
+      p {
+        font-size: 14px;
+      }
+
+      a {
+        font-size: 14px;
+      }
+    }
+  }
+}

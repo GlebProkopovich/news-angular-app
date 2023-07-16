@@ -72,7 +72,7 @@
     height: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 180px;
+    gap: 185px;
     margin: 0 70px;
 
     span {
@@ -133,7 +133,7 @@
           font-size: 16px;
           text-transform: uppercase;
           letter-spacing: 2px;
-          padding: 10px;
+          padding: 0px;
         }
 
         &:focus {
@@ -207,6 +207,291 @@
       font-size: 16px;
       background: rgb(100, 100, 100);
       border-radius: 5px;
+    }
+
+    .pagination ::ng-deep .ngx-pagination {
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .news-container {
+    .banner {
+      p {
+        top: 30%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .news-container {
+    .banner {
+      p {
+        width: 800px;
+        top: 20%;
+        font-size: 40px;
+
+        span {
+          font-size: 25px;
+          font-weight: 300;
+          text-transform: none;
+        }
+      }
+    }
+
+    h2 {
+      a {
+        font-size: 14px;
+      }
+    }
+
+    .selectorsHeadlines {
+      gap: 120px;
+
+      span {
+        width: 100%;
+        font-size: 16px;
+        letter-spacing: 0px;
+      }
+    }
+
+    .newsSelectors {
+      gap: 120px;
+
+      select {
+        width: 100%;
+        font-size: 14px;
+        letter-spacing: 0px;
+      }
+
+      .search {
+        input {
+          font-size: 14px;
+          letter-spacing: 0px;
+
+          &::placeholder {
+            font-size: 14px;
+            letter-spacing: 0px;
+          }
+        }
+
+        button {
+          left: 75%;
+        }
+      }
+    }
+
+    .news {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .news-container {
+    .banner {
+      p {
+        width: 600px;
+        font-size: 25px;
+        line-height: 40px;
+
+        span {
+          font-size: 20px;
+        }
+      }
+    }
+
+    h2 {
+      font-size: 25px;
+      letter-spacing: 0;
+
+      a {
+        left: 50px;
+      }
+    }
+
+    .selectorsHeadlines {
+      gap: 50px;
+      margin: 0 50px;
+    }
+
+    .newsSelectors {
+      gap: 50px;
+      margin: 0 50px 20px;
+    }
+
+    .empty-news {
+      font-size: 14px;
+    }
+
+    .news {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 20px 50px;
+    }
+
+    .pagination-container {
+      .pagination ::ng-deep .ngx-pagination li a {
+        font-size: 14px;
+      }
+
+      .pagination ::ng-deep .ngx-pagination .current {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .news-container {
+    .banner {
+      p {
+        width: 220px;
+        font-size: 20px;
+        line-height: 30px;
+
+        span {
+          font-size: 16px;
+        }
+      }
+    }
+
+    h2 {
+      font-size: 20px;
+      letter-spacing: 0;
+      padding-bottom: 80px;
+
+      a {
+        left: 42%;
+        top: 55%;
+      }
+    }
+
+    .selectorsHeadlines {
+      display: none;
+    }
+
+    .newsSelectors {
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .search {
+        button {
+          top: 10%;
+          left: 92%;
+        }
+      }
+    }
+
+    .news {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .pagination-container {
+      margin: 20px 0;
+
+      .pagination ::ng-deep .ngx-pagination .pagination-previous {
+        display: none;
+      }
+
+      .pagination ::ng-deep .ngx-pagination .pagination-next {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .news-container {
+    h2 {
+      a {
+        left: 39%;
+      }
+    }
+
+    .newsSelectors {
+      margin: 0 20px 20px;
+    }
+
+    .news {
+      padding: 20px 20px 0;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .news-container {
+    h2 {
+      a {
+        left: 38%;
+      }
+    }
+
+    .newsSelectors {
+      .search {
+        button {
+          left: 90%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .news-container {
+    h2 {
+      a {
+        left: 35%;
+      }
+    }
+
+    .newsSelectors {
+      .search {
+        button {
+          left: 88%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .news-container {
+    h2 {
+      a {
+        left: 32%;
+      }
+    }
+
+    .newsSelectors {
+      margin: 0 10px 20px;
+    }
+
+    .news {
+      padding: 20px 10px 0;
+    }
+
+    .newsSelectors {
+      .search {
+        button {
+          left: 80%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .news-container {
+    .newsSelectors {
+      .search {
+        button {
+          left: 75%;
+        }
+      }
     }
   }
 }

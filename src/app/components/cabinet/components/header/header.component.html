@@ -1,4 +1,4 @@
-<div class="header-container">
+<div *ngIf="!isSmallResolution" class="header-container">
   <div (click)="handleClickOnLogo()" class="logo">
     <img [src]="getLogoChronicle()" alt="Logo" />
     <p>hronicle</p>
@@ -11,11 +11,74 @@
       <div *ngIf="isLoaderOpened" class="spinner-container">
         <mat-spinner color="accent" diameter="20" class="loading"></mat-spinner>
       </div>
-      <p *ngIf="!isLoaderOpened" class="button-content">logout</p>
+      <div *ngIf="!isLoaderOpened" class="button-content">
+        <span class="material-symbols-outlined"> logout </span>
+        {{ userName }}
+      </div>
     </button>
   </div>
 </div>
-<div *ngIf="isMainLoaderOpened$ | async" class="progress" style="height: 8px">
+<div
+  *ngIf="(isMainLoaderOpened$ | async) && !isSmallResolution"
+  class="progress"
+  style="height: 8px"
+>
+  <div
+    class="progress-bar progress-bar-striped bg-warning progress-bar-animated"
+    role="progressbar"
+    aria-valuenow="75"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    style="width: 100%"
+  ></div>
+</div>
+
+<div *ngIf="isSmallResolution" class="headerSmall-container">
+  <div
+    (click)="handleClickOnDropdownBtn()"
+    [class]="isDropdownMenuOpened ? 'close-btn' : 'dropdown-btn'"
+  >
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  <div (click)="handleClickOnLogo()" class="logo">
+    <img [src]="getLogoChronicle()" alt="Logo" />
+    <p>hronicle</p>
+  </div>
+  <button (click)="handleClickOnLogout()">
+    <div *ngIf="isLoaderOpened" class="spinner-container">
+      <mat-spinner color="accent" diameter="20" class="loading"></mat-spinner>
+    </div>
+    <div *ngIf="!isLoaderOpened" class="button-content">
+      <span class="material-symbols-outlined"> logout </span>
+      {{ userName }}
+    </div>
+  </button>
+
+  <div *ngIf="isDropdownMenuOpened" class="dropdown-menu">
+    <a (click)="handleClickOnBtn()" routerLinkActive="active" routerLink="news"
+      >news</a
+    >
+    <div class="separator"></div>
+    <a (click)="handleClickOnBtn()" routerLinkActive="active" routerLink="about"
+      >about</a
+    >
+    <div class="separator"></div>
+    <a
+      (click)="handleClickOnBtn()"
+      routerLinkActive="active"
+      routerLink="tariffs"
+      >tariffs</a
+    >
+  </div>
+</div>
+
+<div
+  *ngIf="(isMainLoaderOpened$ | async) && isSmallResolution"
+  class="progress"
+  style="height: 8px"
+>
   <div
     class="progress-bar progress-bar-striped bg-warning progress-bar-animated"
     role="progressbar"

@@ -70,3 +70,23 @@
     }
   }
 }
+
+@media screen and (max-width: 600px) {
+  .logoutNotification-container {
+    .logoutNotification-subcontainer {
+      width: 250px;
+
+      p {
+        font-size: 14px;
+
+        &:nth-of-type(2) {
+          font-size: 14px;
+        }
+      }
+
+      button {
+        font-size: 14px;
+      }
+    }
+  }
+}

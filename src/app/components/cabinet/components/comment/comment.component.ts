@@ -8,8 +8,9 @@ import { Comment } from 'src/app/models/Comments.interface';
   styleUrls: ['./comment.component.scss'],
 })
 export class CommentComponent {
+  userName!: string;
+
   @Input() photoSrc!: string;
-  @Input() nickname!: string;
   @Input() text!: string;
   @Input() index!: number;
   @Input() currentUrl!: string;
@@ -18,6 +19,13 @@ export class CommentComponent {
   @Input() newDetails!: any;
 
   constructor(private commentsService: CommentsService) {}
+
+  ngOnInit() {
+    const unparsedUserContent = localStorage.getItem('userContent');
+    if (unparsedUserContent) {
+      this.userName = JSON.parse(unparsedUserContent).name;
+    }
+  }
 
   handleClickOnCloseBtn(currentUrl: string, text: string): void {
     this.commentsService.deleteComment(currentUrl, text);

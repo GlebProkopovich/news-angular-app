@@ -107,7 +107,7 @@
       font-size: 16px;
       border: none;
       border-radius: 5px;
-      padding: 20px;
+      padding: 20px 40px 20px 20px;
 
       &:focus {
         outline: 0.5px solid rgb(212, 124, 0);
@@ -133,6 +133,134 @@
 
       span {
         font-size: 30px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .newDetails-container {
+    .writeComment {
+      button {
+        left: 95%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .newDetails-container {
+    padding: 30px 50px;
+
+    .back {
+      width: 80px;
+
+      span {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    .date {
+      font-size: 14px;
+    }
+
+    h3 {
+      font-size: 16px;
+    }
+
+    .content {
+      font-size: 14px;
+    }
+
+    .bottom-pannel {
+      .author {
+        font-size: 14px;
+      }
+    }
+
+    .comments {
+      font-size: 14px;
+    }
+
+    .writeComment {
+      input {
+        font-size: 14px;
+      }
+
+      button {
+        left: 94%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .newDetails-container {
+    .newDetailsImage {
+      height: 200px;
+      width: 300px;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .newDetails-container {
+    .writeComment {
+      button {
+        left: 92%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .newDetails-container {
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .newDetails-container {
+    .writeComment {
+      button {
+        left: 90%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .newDetails-container {
+    .newDetailsImage {
+      height: 150px;
+      width: 200px;
+    }
+
+    .writeComment {
+      button {
+        left: 88%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .newDetails-container {
+    padding: 20px 10px;
+
+    .bottom-pannel {
+      a {
+        font-size: 12px;
+      }
+    }
+
+    .writeComment {
+      button {
+        left: 85%;
       }
     }
   }
