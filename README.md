@@ -77,4 +77,5 @@
 ## Контакты
 
 Почта: glebprokopovich@gmail.com
+
 Ссылка на проект: https://github.com/GlebProkopovich/news-angular-app
