@@ -26,17 +26,11 @@ export class NewsComponent {
   constructor(
     private sanitizer: DomSanitizer,
     private newsService: NewsService,
-    private store: Store,
-    private renderer: Renderer2
+    private store: Store
   ) {}
 
   ngOnInit(): void {
     this.makeNewsRequest();
-    this.renderer.setStyle(document.querySelector('.main'), 'display', 'block');
-  }
-
-  ngOnDestroy(): void {
-    this.renderer.setStyle(document.querySelector('.main'), 'display', 'flex');
   }
 
   getNatureImage(): SafeResourceUrl {
