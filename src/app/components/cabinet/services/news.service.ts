@@ -10,7 +10,7 @@ import { NewDetails } from 'src/app/models/NewDetails.interface';
 })
 export class NewsService {
   API_URL: string = 'https://newsapi.org/v2/top-headlines?';
-  API_KEY: string = '64ebe572f1ff499e9c2adf7e0e08406e';
+  API_KEY: string = 'be86c240e2284e34a35dc0aa02d77647';
 
   constructor(private http: HttpClient, private router: Router) {}
 
