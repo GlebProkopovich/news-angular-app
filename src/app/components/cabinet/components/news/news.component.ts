@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NewsService } from '../../services/news.service';
 import { New } from 'src/app/models/New.interface';
@@ -26,11 +26,17 @@ export class NewsComponent {
   constructor(
     private sanitizer: DomSanitizer,
     private newsService: NewsService,
-    private store: Store
+    private store: Store,
+    private renderer: Renderer2
   ) {}
 
   ngOnInit(): void {
     this.makeNewsRequest();
+    this.renderer.setStyle(document.querySelector('.main'), 'display', 'block');
+  }
+
+  ngOnDestroy(): void {
+    this.renderer.setStyle(document.querySelector('.main'), 'display', 'flex');
   }
 
   getNatureImage(): SafeResourceUrl {
