@@ -33,6 +33,10 @@ body {
         z-index: 1;
         background: #fff;
       }
+
+      app-about {
+        min-height: 100%;
+      }
     }
   }
 }

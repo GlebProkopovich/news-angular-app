@@ -15,6 +15,11 @@ export class TariffsComponent {
 
   ngOnInit(): void {
     this.tariffs = tariffs;
+    this.renderer.setStyle(document.querySelector('.main'), 'display', 'block');
+  }
+
+  ngOnDestroy(): void {
+    this.renderer.setStyle(document.querySelector('.main'), 'display', 'flex');
   }
 
   ngAfterViewInit(): void {

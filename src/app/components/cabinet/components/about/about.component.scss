@@ -1,5 +1,10 @@
-#about-container {
-  height: 500px;
+.about-container {
+  align-items: stretch;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
   padding: 30px 70px;
   background: #607d96;
 
@@ -41,13 +46,14 @@
 }
 
 @media screen and (max-width: 1100px) {
-  #about-container {
+  .about-container {
     height: auto;
+    display: block;
   }
 }
 
 @media screen and (max-width: 850px) {
-  #about-container {
+  .about-container {
     p {
       font-size: 14px;
     }
@@ -55,7 +61,7 @@
 }
 
 @media screen and (max-width: 700px) {
-  #about-container {
+  .about-container {
     h1 {
       font-size: 40px;
     }
@@ -75,13 +81,13 @@
 }
 
 @media screen and (max-width: 550px) {
-  #about-container {
+  .about-container {
     padding: 20px 20px;
   }
 }
 
 @media screen and (max-width: 400px) {
-  #about-container {
+  .about-container {
     h1 {
       font-size: 30px;
     }
@@ -101,7 +107,7 @@
 }
 
 @media screen and (max-width: 330px) {
-  #about-container {
+  .about-container {
     padding: 20px 10px;
   }
 }
